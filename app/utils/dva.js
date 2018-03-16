@@ -10,6 +10,7 @@ export default function (options) {
     global.registered = true;
 
     app.start();
+    // eslint-disable-next-line no-underscore-dangle
     const store = app._store;
 
     app.start = container => () => <Provider store={store}>{container}</Provider>;

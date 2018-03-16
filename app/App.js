@@ -1,10 +1,10 @@
 import React from "react";
-import dva from './utils/dva';
+import dva from './utils/Dva';
 import Router from './Router';
 
 //model
-import AppModel from './models/app'
-import RouterModel from './models/router';
+import AppModel from './models/AppModel'
+import RouterModel from './models/RouterModel';
 //action
 import {routerMiddleware} from './Router';
 

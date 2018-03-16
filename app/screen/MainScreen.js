@@ -1,19 +1,27 @@
 import React, {Component} from 'react';
 import {
-    Dimensions,
     View,
-    Text
+    Text, Button
 } from "react-native";
 import {connect} from 'react-redux';
+import MainScreenStyle from '../style/MainScreenStyle'
+import BaseStyle from "../style/BaseStyles";
+import {createAction} from "../utils";
 
-const width = Dimensions.get('window').width;
 
-@connect()
+@connect(({app}) => ({...app}))
 class MainScreen extends Component {
-    render(){
-        return(
-            <View style={{flex:1,justifyContent:'center',alignItems:'center'}}>
-                <Text>hello</Text>
+
+    btnClick() {
+        this.props.dispatch(createAction('app/getData')());
+    }
+
+    render() {
+        const {data} = this.props;
+        return (
+            <View style={[BaseStyle.container, MainScreenStyle.container]}>
+                <Button title="get data" onPress={this.btnClick.bind(this)}/>
+                <Text>hello{data != undefined ? data.data.datas[0].chapterName : ""}</Text>
             </View>
         );
     }
@@ -21,10 +29,10 @@ class MainScreen extends Component {
 
 const MainScreenConfig = {
     screen: MainScreen,
-    navigationOptions:{
-        headerTitle:(
-            <View style={{width:width,height:'100%',backgroundColor:'#e3e3e3',alignItems:'center',justifyContent:'center'}}>
-                <Text style={{color:'blue',fontSize:18,fontWeight:'bold'}}>Home</Text>
+    navigationOptions: {
+        headerTitle: (
+            <View style={MainScreenStyle.headerTitle}>
+                <Text style={MainScreenStyle.headerTitleText}>Home</Text>
             </View>
         ),
     }
