@@ -17,7 +17,7 @@ import StackRouteConfigs from "./StackRouteConfigs";
 
 
 const StackNavigatorConfigs = {
-    headerMode: 'screen',
+    headerMode: 'none',
     mode: 'card',
     navigationOptions: {
         gesturesEnabled: false,

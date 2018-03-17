@@ -11,6 +11,7 @@ const AppModel =  {
         login: false,
         loading: true,
         fetching: false,
+        title: 'Home'
     },
     //修改数据的唯一途径,同步方式
     reducers:{

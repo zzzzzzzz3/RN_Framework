@@ -1,22 +1,44 @@
 import React, {Component} from 'react';
 import {
     View,
-    Text, Button
+    Text, Button, Alert, Image
 } from "react-native";
 import {connect} from 'react-redux';
 import MainScreenStyle from '../style/MainScreenStyle'
 import BaseStyle from "../style/BaseStyles";
 import {createAction} from "../utils";
+import BaseScreen from "./BaseScreen";
 
 
 @connect(({app}) => ({...app}))
-class MainScreen extends Component {
+class MainScreen extends BaseScreen {
 
     btnClick() {
         this.props.dispatch(createAction('app/getData')());
     }
 
-    render() {
+    rightPress() {
+        Alert.alert("left click")
+    }
+
+    showLeft(){
+        return false
+    }
+
+    showRight(){
+        return false
+    }
+
+    renderTitle(){
+        return(
+            <View style={{flex:1,flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                <Image source = {require('../images/github.png')} style={{width:50,height:50,borderRadius:25,marginRight:10}}/>
+                <Text style={BaseStyle.title}>{this.props.title}</Text>
+            </View>
+        )
+    }
+
+    renderContent() {
         const {data} = this.props;
         return (
             <View style={[BaseStyle.container, MainScreenStyle.container]}>
@@ -29,13 +51,13 @@ class MainScreen extends Component {
 
 const MainScreenConfig = {
     screen: MainScreen,
-    navigationOptions: {
-        headerTitle: (
-            <View style={MainScreenStyle.headerTitle}>
-                <Text style={MainScreenStyle.headerTitleText}>Home</Text>
-            </View>
-        ),
-    }
+    // navigationOptions: {
+    //     headerTitle: (
+    //         <View style={MainScreenStyle.headerTitle}>
+    //             <Text style={MainScreenStyle.headerTitleText}>Home</Text>
+    //         </View>
+    //     ),
+    // }
 };
 
 export default MainScreenConfig
