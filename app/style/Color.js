@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default class Color {
-    static red= '#FF0000';
+    static red= '#CC1731';
     static orange= '#FFA500';
     static yellow= '#FFFF00';
     static green= '#00FF00';
@@ -17,27 +17,24 @@ export default class Color {
     static PeachPuff= '#FFDAB9';
     static clear= 'transparent';
 
-    /** 主题色 **/
-    static themeColor= '#e74c3c';
-    // 默认灰色字体颜色
-    static textGrayColor= '#989898';
-    // 默认黑色字体颜色
-    static textBlockColor= '#262626';
-    // 默认背景颜色
-    static bgColor= '#E6E6E6';
-    // 默认分割线颜色
-    static lineColor= '#E6E6E6';
-    // 默认placeholder颜色
-    static placeholderColor= '#eee';
-    // borderColor
+    static status_bar = "#FFF";
+
     static borderColor= '#808080';
     // 导航title 颜色
     static navTitleColor= '#262626';
-    // 导航左item title color
-    static navLeftTitleColor= '#333';
-    // 导航右item title color
-    static navRightTitleColor= '#333';
     static navThemeColor= '#FEFEFE';
     static iconGray= '#989898';
-    static iconBlack= '#262626';
+
+    static Teal = '#93BBC2';
+    static BabyBlue = '#AED9E0';
+    static LavenderGray = '#C1CBCB';
+    static OldLavender = '#717272';
+    static OuterSpace = '#474749';
+    static DarkTeal = '#405D63';
+    static MossGrey = '#B4BBA9';
+    static Mauve = '#A4898B';
+    static Glod = '#DEAB41';
+    static Navy = '#262C3D';
+
+
 }

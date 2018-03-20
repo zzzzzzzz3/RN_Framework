@@ -12,6 +12,10 @@ const BaseStyle = StyleSheet.create({
         fontSize: Dimension.titleSize,
         color: Color.navTitleColor,
         fontWeight: 'bold'
+    },
+    icon:{
+        width:25,
+        height:25
     }
 });
 

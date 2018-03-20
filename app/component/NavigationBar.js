@@ -48,7 +48,7 @@ export default class NavigationBar extends PureComponent {
                 style={styles.left}
                 onPress={this.props.onLeftPress}
             >
-                <Icon name='arrow-left' size={25} color={Color.iconGray}/>
+                <Icon name={this.props.leftIcon.name} size={this.props.leftIcon.size} color={this.props.leftIcon.color}/>
             </TouchableOpacity>
         )
     }
@@ -78,7 +78,7 @@ export default class NavigationBar extends PureComponent {
                 style={styles.right}
                 onPress={this.props.onRightPress}
             >
-                <Icon name={this.props.rightIcon.name} size={25} color={this.props.rightIcon.color}/>
+                <Icon name={this.props.rightIcon.name} size={this.props.rightIcon.size} color={this.props.rightIcon.color}/>
             </TouchableOpacity>
         )
     }
@@ -88,12 +88,12 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         width: "100%",
-        height: 64,
-        backgroundColor: Color.navThemeColor,
+        height: 72,
+        backgroundColor: Color.Teal,
         alignItems: 'center',
-        borderBottomWidth: 1,
+        // borderBottomWidth: 1,
         // justifyContent: 'space-between',
-        borderBottomColor: Color.borderColor,
+        // borderBottomColor: Color.borderColor,
     },
     left: {
         position:'absolute',
@@ -102,10 +102,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
     },
-    leftTitle: {
-        fontSize: Dimension.defaultSize,
-        color: Color.navTitleColor
-    },
     center: {
         width:'100%',
         justifyContent:'center',
@@ -113,7 +109,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: Dimension.titleSize,
-        color: Color.navTitleColor,
+        color: Color.white,
         fontWeight: 'bold'
     },
     right: {
@@ -122,9 +118,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row'
-    },
-    rightTitle: {
-        fontSize: Dimension.defaultSize,
-        color: Color.navTitleColor
     },
 });

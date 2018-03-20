@@ -4,7 +4,7 @@ export default class AppUtil{
     static windowWidth  = Dimensions.get('window').width;
     static windowHeight  = Dimensions.get('window').height;
 
-    isAnfroid(){
+    static isAnfroid(){
         return Platform.OS === 'android'
     }
 

@@ -1,9 +1,17 @@
 import React from "react";
-import MainScreenConfig from './screen/MainScreen';
+import MainScreen from './screen/MainScreen';
+import SplashScreen from "./screen/SplashScreen";
+import MainNavigator from "./screen/MainNavigator";
+import SearchScreen from "./screen/SearchScreen";
 
 //路由页面配置
 const StackRouteConfigs = {
-    Main: MainScreenConfig,
+    Splash:{
+        screen:SplashScreen
+    },
+    Main: {
+        screen:MainNavigator
+    },
 
 };
 
