@@ -24,10 +24,10 @@ function remove(key) {
 
 function multiGet(...keys) {
   return AsyncStorage.multiGet([...keys]).then(stores => {
-    const data = {}
+    const data = {};
     stores.forEach((result, i, store) => {
       data[store[i][0]] = JSON.parse(store[i][1])
-    })
+    });
     return data
   })
 }

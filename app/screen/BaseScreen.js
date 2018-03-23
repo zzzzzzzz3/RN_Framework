@@ -1,10 +1,10 @@
 import React, {PureComponent} from 'react'
-import {createAction} from "../utils";
-import {Alert, StatusBar, StyleSheet, Text, View} from "react-native";
+import {Alert, StatusBar, StyleSheet, View, KeyboardAvoidingView} from "react-native";
 import NavigationBar from "../component/NavigationBar";
 import {NavigationActions} from '../utils'
 import Color from "../style/Color";
 import AppUtil from "../utils/AppUtil";
+import {Toast} from "antd-mobile";
 
 export default class BaseScreen extends PureComponent {
 
@@ -34,25 +34,23 @@ export default class BaseScreen extends PureComponent {
         console.log(`${this.props.title} willmount`)
     }
 
-    componentDidMount() {
-        console.log(`${this.props.title} didmount`)
-    }
 
     componentWillUnmount() {
-        console.log(`${this.props.title} unmount`);
+        Toast.hide();
     }
 
     statusBar() {
         if (this.state.hidden) {
             return null
         } else {
-            return (<View style={styles.statubar}/>)
+            return (<View style={basestyles.statubar}/>)
         }
     }
 
     render() {
+        const behavior = AppUtil.isAnfroid() ? null : 'padding';
         return (
-            <View style={styles.container}>
+            <KeyboardAvoidingView style={basestyles.container} behavior={behavior}>
                 <StatusBar
                     backgroundColor={this.state.backgroundColor}
                     translucent={this.state.translucent}
@@ -66,7 +64,7 @@ export default class BaseScreen extends PureComponent {
                 {this.statusBar()}
                 {this.renderNavbar()}
                 {this.renderContent()}
-            </View>
+            </KeyboardAvoidingView>
         )
     }
 
@@ -119,13 +117,13 @@ export default class BaseScreen extends PureComponent {
     }
 
     leftIcon() {
-        return {name: 'arrow-left', size: 25, color: Color.white}
+        return {name: 'angle-left', size: 25, color: Color.white}
     }
 }
 
 const h = AppUtil.isAnfroid() ? 0 : 20;
 
-const styles = StyleSheet.create({
+const basestyles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: 'white'

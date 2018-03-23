@@ -2,6 +2,7 @@ import {createAction,Storage} from "../utils";
 import NavigationActions from "react-navigation/src/NavigationActions";
 import * as authService from '../service/auth';
 import HttpRequest from '../utils/HttpRequest'
+import {Toast} from "antd-mobile/lib/index";
 
 const AppModel =  {
     //命名空间
@@ -11,7 +12,6 @@ const AppModel =  {
         login: false,
         loading: true,
         fetching: false,
-        title: 'Home'
     },
     //修改数据的唯一途径,同步方式
     reducers:{
@@ -28,6 +28,8 @@ const AppModel =  {
         },
         //请求登录
         *login({ payload }, { call, put }) {
+            console.log('login------------------------',payload);
+            Toast.loading('loading',0);
             yield put(createAction('updateState')({ fetching: true }));
             const login = yield call(authService.login, payload);
             if (login) {
@@ -40,7 +42,8 @@ const AppModel =  {
                 )
             }
             yield put(createAction('updateState')({ login, fetching: false }));
-            Storage.set('login', login)
+            Toast.hide();
+            // Storage.set('login', login)
         },
         *logout(action, { call, put }) {
             yield call(Storage.set, 'login', false);

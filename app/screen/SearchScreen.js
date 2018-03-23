@@ -58,7 +58,7 @@ class SearchBar extends PureComponent {
                     onPress={this.pickdate}
                     style={styles.leftbox}
                 >
-                    <Image source={require('../images/search.png')} style={styles.left}/>
+                    <Image source={require('../images/events_icon.png')} style={styles.leftIcon}/>
                 </TouchableOpacity>
 
                 <View style={styles.rightBox}>
@@ -71,12 +71,12 @@ class SearchBar extends PureComponent {
                     <TouchableOpacity
                         onPress={this.pickdate}
                     >
-                        <Image source={require('../images/search.png')} style={styles.icon}/>
+                        <Image source={require('../images/local_icon.png')} style={styles.icon}/>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={this.pickdate}
                     >
-                        <Image source={require('../images/search.png')} style={styles.icon}/>
+                        <Image source={require('../images/list_icon.png')} style={styles.icon}/>
                     </TouchableOpacity>
                 </View>
             </View>
@@ -97,15 +97,15 @@ class ListItem extends PureComponent {
                 onPress={this._onPress}
 
             >
-                <Image source={require('../images/bg.jpg')} style={styles.itemImage}/>
+                <Image source={require('../images/events_bg.jpeg')} style={styles.itemImage}/>
                 <View style={styles.itemContent}>
                     <Text style={styles.itemTitle}>Good things are brewing in Baltimore with Mixolo</Text>
                     <View style={styles.itemTextContent}>
-                        <Image source={require('../images/search.png')} style={styles.itemIcon}/>
+                        <Image source={require('../images/time.png')} style={styles.itemIcon}/>
                         <Text style={styles.itemText}> March 26,2017 @ 5:00 Pm</Text>
                     </View>
                     <View style={styles.itemTextContent}>
-                        <Image source={require('../images/search.png')} style={styles.itemIcon}/>
+                        <Image source={require('../images/local_icon.png')} style={styles.itemIcon}/>
                         <Text style={styles.itemText}> Brew House No.16</Text>
                         <Text style={styles.itemDistance} ellipsizeMode='tail' numberOfLines={1}>(2.9 miles from you)</Text>
                     </View>
@@ -171,6 +171,7 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30,
         marginHorizontal: 8,
+        tintColor:Color.red
     },
     input: {
         flex: 1,

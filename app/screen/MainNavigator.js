@@ -3,7 +3,6 @@ import {
     TabNavigator,
     TabBarBottom
 } from 'react-navigation'
-import MainScreen from './MainScreen'
 import {Image,StyleSheet} from "react-native";
 import Color from '../style/Color'
 import SearchScreen from "./SearchScreen";
@@ -20,8 +19,8 @@ const MainNavigator = TabNavigator(
                 title:'SEARCH',
                 tabBarIcon:({focused,tintColor}) => (
                     <Image
-                        source={focused?require('../images/search_selected.png'):require('../images/search.png')}
-                        style={styles.icon}
+                        source={require('../images/search.png')}
+                        style={[styles.icon,{tintColor:tintColor}]}
                     />
                 )
             }
@@ -29,11 +28,11 @@ const MainNavigator = TabNavigator(
         Reservation:{
             screen:Reservations,
             navigationOptions:{
-                title:'REVERVATION',
+                title:'REVERVATIONS',
                 tabBarIcon:({focused,tintColor}) => (
                     <Image
-                        source={focused?require('../images/search_selected.png'):require('../images/search.png')}
-                        style={styles.icon}
+                        source={require('../images/time.png')}
+                        style={[styles.icon,{tintColor:tintColor}]}
                     />
                 )
             }
@@ -42,12 +41,15 @@ const MainNavigator = TabNavigator(
             screen:MyEvents,
             navigationOptions:{
                 title:'MY EVENTS',
-                tabBarIcon:({focused,tintColor}) => (
-                    <Image
-                        source={focused?require('../images/search_selected.png'):require('../images/search.png')}
-                        style={styles.icon}
-                    />
-                )
+                tabBarIcon:({focused,tintColor}) => {
+                    return(
+
+                        <Image
+                            source={require('../images/events_icon.png')}
+                            style={[styles.icon,{tintColor:tintColor}]}
+                        />
+                    )
+                }
             }
         },
         Profile:{
@@ -56,8 +58,8 @@ const MainNavigator = TabNavigator(
                 title:'PROFILE',
                 tabBarIcon:({focused,tintColor}) => (
                     <Image
-                        source={focused?require('../images/search_selected.png'):require('../images/search.png')}
-                        style={styles.icon}
+                        source={require('../images/me.png')}
+                        style={[styles.icon,{tintColor:tintColor}]}
                     />
                 )
             }
@@ -68,17 +70,18 @@ const MainNavigator = TabNavigator(
         tabBarPosition:'bottom',
         swipeEnabled:false,
         animationEnabled:false,
-        lazyLoad:true,
+        lazyLoad:false,
         backBehavior:'none',
         tabBarOptions:{
             activeTintColor:Color.red,
             inactiveTintColor:Color.gray,
             labelStyle:{
-                fontSize:12,
-                marginBottom:10
+                fontSize:10,
+
             },
             style:{
-                height:72
+                height:72,
+                padding:10
             }
         },
         // navigationOptions:{
@@ -91,8 +94,8 @@ const MainNavigator = TabNavigator(
 
 const styles = StyleSheet.create({
     icon:{
-        width:25,
-        height:25
+        width:30,
+        height:30
     }
 });
 

@@ -29,10 +29,10 @@ export default class NavigationBar extends PureComponent {
     render() {
         return (
             <View style={styles.container}>
-                {/* 导航左按钮 */}
-                {this.renderLeftItem()}
                 {/* 导航title */}
                 {this.renderTitle()}
+                {/* 导航左按钮 */}
+                {this.renderLeftItem()}
                 {/* 导航右按钮*/}
                 {this.renderRightItem()}
             </View>
@@ -88,16 +88,24 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         width: "100%",
-        height: 72,
+        height: 64,
         backgroundColor: Color.Teal,
         alignItems: 'center',
+        shadowColor:Color.drakGray,
+        shadowRadius:8,
+        shadowOpacity:0.5,
+        shadowOffset:{
+            height:0,
+            width:0
+        }
         // borderBottomWidth: 1,
         // justifyContent: 'space-between',
         // borderBottomColor: Color.borderColor,
     },
     left: {
         position:'absolute',
-        left:20,
+        left:0,
+        padding:20,
         alignItems: 'center',
         flexDirection: 'row',
         justifyContent: 'center',
@@ -105,7 +113,7 @@ const styles = StyleSheet.create({
     center: {
         width:'100%',
         justifyContent:'center',
-        alignItems:'center'
+        alignItems:'center',
     },
     title: {
         fontSize: Dimension.titleSize,
@@ -114,7 +122,8 @@ const styles = StyleSheet.create({
     },
     right: {
         position:'absolute',
-        right:20,
+        right:0,
+        padding:20,
         alignItems: 'center',
         justifyContent: 'center',
         flexDirection: 'row'

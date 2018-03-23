@@ -95,7 +95,7 @@ export default class Router extends PureComponent {
      * */
     backHandle = () => {
         const currentScreen = getCurrentScreen(this.props.router);
-        if (currentScreen !== 'Main') {
+        if (currentScreen !== 'Main' && currentScreen !== 'Login') {
             this.props.dispatch(NavigationActions.back());
             return true
         }

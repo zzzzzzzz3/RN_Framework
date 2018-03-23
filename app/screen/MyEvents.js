@@ -15,7 +15,7 @@ import Color from '../style/Color'
 export default class MyEvents extends BaseScreen{
 
     static defaultProps = {
-        title:'My Events'
+        title:'MYEVENTS'
     };
 
     constructor(props){
@@ -61,7 +61,7 @@ class ListItem extends PureComponent{
                     style={styles.itemContainer}
                     onPress={this._onPress}
                 >
-                    <ImageBackground source={require('../images/bg.jpg')} style={styles.imageBackground}>
+                    <ImageBackground source={require('../images/events_bg.jpeg')} style={styles.imageBackground}>
                         <Text style={styles.title}>WE GO HIGH! MIXOLO HAPPY HOUR</Text>
                         <Text style={[styles.text,{marginBottom:25}]}>May 23,2017 @ 6:00 PM</Text>
                         <Text style={styles.text}>Sky Bar at Mt.Washington Tavern</Text>
@@ -75,12 +75,12 @@ class ListItem extends PureComponent{
                     <TouchableOpacity
                         onPress={this._timePress}
                     >
-                        <Image source={require('../images/search.png')} style={styles.icon}/>
+                        <Image source={require('../images/time.png')} style={styles.icon}/>
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={this._localPress}
                     >
-                        <Image source={require('../images/search.png')} style={styles.icon}/>
+                        <Image source={require('../images/local_icon.png')} style={styles.icon}/>
                     </TouchableOpacity>
                 </View>
             </View>
