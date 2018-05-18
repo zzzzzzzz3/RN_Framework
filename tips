@@ -1,0 +1,18 @@
+加载远程包jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.236:8081/index.ios.bundle?platform=ios&dev=true"];
+
+打离线包
+react-native bundle --entry-file index.ios.js --bundle-output ./ios/bundle/index.ios.jsbundle --platform ios --assets-dest ./ios/bundle --dev false
+
+加载本地包
+jsCodeLocation = [NSURL URLWithString:[[NSBundle mainBundle] pathForResource:@"index.ios.jsbundle" ofType:nil]];
+
+刷新bundle
+watchman watch-del-all
+rm -rf node_modules && npm install
+npm start -- --reset-cache
+
+android离线包
+react-native bundle --entry-file index.android.js --bundle-output ./android/app/src/main/assets/index.android.bundle --platform android --assets-dest ./android/app/src/main/res/ --dev false
+在MyApplication中添加
+@Override protected String getBundleAssetName() { return "index.android.bundle"; }
+
